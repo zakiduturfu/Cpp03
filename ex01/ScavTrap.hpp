@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 13:35:48 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/23 16:05:04 by zlemery          ###   ########.fr       */
+/*   Created: 2023/12/21 15:36:28 by zlemery           #+#    #+#             */
+/*   Updated: 2023/12/23 15:59:48 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-
-int	main()
+class ScavTrap : public ClapTrap
 {
-	ClapTrap sam("Samira");
-	ScavTrap yass("yassine");
+public: 
+	ScavTrap( const std::string name );
+	ScavTrap( ScavTrap const & src);
+	~ScavTrap();
 
-	yass.guardGate();
-	sam.attack("yassine");
-	yass.attack("samira");
-	sam.beRepaired(8);
-}
+	void	guardGate();
+
+private:
+	ScavTrap( void );
+};
+
+#endif

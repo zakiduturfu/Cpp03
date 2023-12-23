@@ -6,13 +6,13 @@
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 13:33:29 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/19 18:28:05 by zlemery          ###   ########.fr       */
+/*   Updated: 2023/12/23 16:06:41 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( const std::string name ) : _Name(name), _HitPoints(10), _EnergyPoints(10)
+ClapTrap::ClapTrap( const std::string name ) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
 	std::cout << GREEN << "constructor called" << RESET << std::endl;
 	return ;

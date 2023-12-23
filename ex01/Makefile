@@ -1,6 +1,6 @@
 # Variables
 
-NAME	=	FragTrap
+NAME	=	ScavTrap
 PROJECT =	Cpp03 - Ex01
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
@@ -12,7 +12,7 @@ INCLUDE	=	-I./include
 
 # Sources
 
-FILES	=	main.cpp ClapTrap.cpp
+FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp
 ###
 
 OBJF	=	.cache_exists
@@ -22,7 +22,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) ClapTrap.hpp ./Makefile
+$(NAME)	:	$(FILES) ClapTrap.hpp ScavTrap.hpp ./Makefile
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 
 clean	:

@@ -6,7 +6,7 @@
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 13:33:29 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/19 16:22:45 by zlemery          ###   ########.fr       */
+/*   Updated: 2023/12/23 15:56:42 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ public:
 	void	takeDamage( unsigned int amount );
 	void	beRepaired( unsigned int amount );
 
-private:
+protected:
 
 	const std::string	_Name;
 	int			_HitPoints;
