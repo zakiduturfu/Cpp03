@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 15:36:28 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/27 14:03:05 by zlemery          ###   ########.fr       */
+/*   Created: 2023/12/27 14:16:28 by zlemery           #+#    #+#             */
+/*   Updated: 2023/12/27 17:40:23 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 public: 
 	ScavTrap( const std::string name );
@@ -26,6 +26,10 @@ public:
 	void	attack( const std::string& target );
 	void	beRepaired( unsigned int amount);
 	void	takeDamage(unsigned int amount);
+
+	void	getAttack();
+	void	getBeRepaired();
+	void	getTakeDamage();
 
 private:
 	ScavTrap( void );

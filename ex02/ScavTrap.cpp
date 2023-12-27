@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 14:23:18 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/27 14:03:53 by zlemery          ###   ########.fr       */
+/*   Created: 2023/12/27 14:16:28 by zlemery           #+#    #+#             */
+/*   Updated: 2023/12/27 14:50:06 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-	std::cout << this->_Name << "is now in guard keep mode" << std::endl;
+	std::cout << this->_Name << " is now in guard keep mode" << std::endl;
 	return ;
 }
 

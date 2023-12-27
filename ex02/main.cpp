@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 15:36:28 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/27 14:03:05 by zlemery          ###   ########.fr       */
+/*   Created: 2023/12/27 14:16:28 by zlemery           #+#    #+#             */
+/*   Updated: 2023/12/27 14:49:34 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
-
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+
+int	main()
 {
-public: 
-	ScavTrap( const std::string name );
-	ScavTrap( ScavTrap const & src);
-	~ScavTrap();
+	ClapTrap sam("Samira");
+	ScavTrap yass("yassine");
+	FragTrap zac("zaki");
 
-	void	guardGate();
-	void	attack( const std::string& target );
-	void	beRepaired( unsigned int amount);
-	void	takeDamage(unsigned int amount);
-
-private:
-	ScavTrap( void );
-};
-
-#endif
+	yass.guardGate();
+	sam.attack("yassine");
+	yass.attack("samira");
+	sam.beRepaired(8);
+	zac.highFivesGuys();
+}

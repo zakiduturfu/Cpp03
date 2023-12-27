@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 15:36:28 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/27 14:03:05 by zlemery          ###   ########.fr       */
+/*   Created: 2023/12/27 16:34:11 by zlemery           #+#    #+#             */
+/*   Updated: 2023/12/27 17:51:42 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-public: 
-	ScavTrap( const std::string name );
-	ScavTrap( ScavTrap const & src);
-	~ScavTrap();
-
-	void	guardGate();
-	void	attack( const std::string& target );
-	void	beRepaired( unsigned int amount);
-	void	takeDamage(unsigned int amount);
+public:
+	DiamondTrap( const std::string name);
+	DiamondTrap( DiamondTrap const & src);
+	~DiamondTrap();
 
 private:
-	ScavTrap( void );
+	std::string	_Name;
+	int			_Hitpoint;
+	int			_EnergyPoints;
+	int			_AttackDamage;
 };
 
 #endif
