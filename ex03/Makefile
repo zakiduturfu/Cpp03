@@ -12,7 +12,7 @@ INCLUDE	=	-I./include
 
 # Sources
 
-FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 ###
 
 OBJF	=	.cache_exists
@@ -22,7 +22,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) ClapTrap.hpp ScavTrap.hpp FragTrap.hpp ./Makefile
+$(NAME)	:	$(FILES) ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp ./Makefile
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 
 clean	:

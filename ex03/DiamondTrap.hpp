@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zaki <zaki@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 16:34:11 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/27 17:51:42 by zlemery          ###   ########.fr       */
+/*   Updated: 2023/12/28 00:01:22 by zaki             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ public:
 	DiamondTrap( const std::string name);
 	DiamondTrap( DiamondTrap const & src);
 	~DiamondTrap();
+
+	std::string	getName( void );
+	int		getEnergyPoint( void );
+	int		getAttackDamage( void );
+	int		getHitPoint( void );
 
 private:
 	std::string	_Name;
