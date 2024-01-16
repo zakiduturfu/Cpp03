@@ -6,7 +6,7 @@
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 13:35:48 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/19 18:28:52 by zlemery          ###   ########.fr       */
+/*   Updated: 2024/01/16 14:33:52 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,15 @@
 int	main()
 {
 	ClapTrap sam("Samira");
+	ClapTrap yass("Yassine");
 
 	sam.attack("Yassine");
-	sam.takeDamage(4);
+	yass.takeDamage(9);
+	yass.attack("samira");
 	sam.beRepaired(2);
+	sam.attack("yassine");
+	yass.takeDamage(2);
+	yass.attack("samira");
+	yass.takeDamage(4);
+	yass.beRepaired(1);
 }

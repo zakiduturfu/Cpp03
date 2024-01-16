@@ -6,13 +6,15 @@
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 13:33:29 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/19 18:28:05 by zlemery          ###   ########.fr       */
+/*   Updated: 2024/01/15 18:55:29 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( const std::string name ) : _Name(name), _HitPoints(10), _EnergyPoints(10)
+
+/*--------------------- CONSTRUCTOR ------------------*/
+ClapTrap::ClapTrap( const std::string name ) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
 	std::cout << GREEN << "constructor called" << RESET << std::endl;
 	return ;
@@ -25,11 +27,15 @@ ClapTrap::ClapTrap( ClapTrap const & src)
 	return ;
 }
 
+/*--------------------- DESTRUCTOR -------------------*/
+
 ClapTrap::~ClapTrap( void )
 {
 	std::cout << GREEN << "Destructor called" << RESET << std::endl;
 	return ;
 }
+
+/*--------------------- OPERATOR OVERLOAD ------------*/
 
 ClapTrap &	ClapTrap::operator=( ClapTrap const & rhs)
 {
@@ -40,40 +46,51 @@ ClapTrap &	ClapTrap::operator=( ClapTrap const & rhs)
 	return *this;
 }
 
+/*--------------------- MEMBER FUNCTION --------------*/
+
 void	ClapTrap::attack( const std::string& target )
 {
-	if (this->_EnergyPoints > 0 || this->_HitPoints){
-		std::cout << YELLOW << "ClapTrap " << this->_Name << " attacks " << target
-		<< " , causing " << this->_AttackDamage << " points of damage !" << RESET << std::endl;
+	if (this->_EnergyPoints > 0 && this->_HitPoints){
+		std::cout << "ClapTrap " << this->_Name << " attacks " << target
+		<< ", causing " << this->_AttackDamage << " points of damage !" << std::endl;
 		this->_EnergyPoints--;
 	}
 	else if (this->_EnergyPoints){
-		std::cout << RED << "ClapTrap " << this->_Name << " cannot attack whithout energy point" << std::endl;
+		std::cout << RED << "ClapTrap " << this->_Name << " cannot attack whithout energy point" << RESET << std::endl;
 	}
 	else{
-		std::cout << RED << "ClapTrap " << this->_Name << " cannot attack beacause " << this->_Name<< std::endl;
+		std::cout << RED << "ClapTrap " << this->_Name << " cannot attack beacause " << RESET << this->_Name<< std::endl;
 	}
 	return ;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	if (this->_HitPoints <= 0){
+		std::cout << RED << "ClapTrap " << this->_Name << " is dead" << RESET << std::endl;
+		return ;
+	}
+
 	this->_HitPoints -= amount;
 
-	std::cout << YELLOW << "ClapTrap " << this->_Name << " received " << amount
-	<< " points of damage, it remain " << this->_HitPoints << " HitPoints" << RESET << std::endl;
+	if (this->_HitPoints <= 0)
+		this->_HitPoints = 0;
+
+	std::cout << "ClapTrap " << this->_Name << " received " << amount
+	<< " points of damage, it remain " << this->_HitPoints << " HitPoints"  << std::endl;
 	return ;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount)
 {
-	if (this->_EnergyPoints > 0 || this->_HitPoints > 0){
+	if (this->_EnergyPoints > 0 && this->_HitPoints > 0)
+	{
 
 		this->_HitPoints += amount;
 		this->_EnergyPoints--;
-		std::cout << YELLOW << "ClapTrap " << this->_Name << " receive " << amount
+		std::cout << "ClapTrap " << this->_Name << " receive " << amount
 		<< " energy points, now " << this->_Name << " has " << this->_HitPoints 
-		<< " hit points" << RESET << std::endl;
+		<< " hit points" << std::endl;
 	}
 	else if (this->_EnergyPoints){
 		std::cout << RED << "ClapTrap " << this->_Name << " cannot repaire hit points without energy points"

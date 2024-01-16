@@ -6,7 +6,7 @@
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 16:34:11 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/27 17:51:42 by zlemery          ###   ########.fr       */
+/*   Updated: 2024/01/16 13:57:10 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ public:
 	DiamondTrap( const std::string name);
 	DiamondTrap( DiamondTrap const & src);
 	~DiamondTrap();
+
+	void	guardGate();
+	void	highFivesGuys( void );
 
 private:
 	std::string	_Name;

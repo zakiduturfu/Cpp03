@@ -6,7 +6,7 @@
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 13:35:48 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/23 16:05:04 by zlemery          ###   ########.fr       */
+/*   Updated: 2024/01/15 18:41:50 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	main()
 	yass.guardGate();
 	sam.attack("yassine");
 	yass.attack("samira");
+	sam.takeDamage(20);
 	sam.beRepaired(8);
 }

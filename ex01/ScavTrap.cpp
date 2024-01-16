@@ -6,7 +6,7 @@
 /*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 14:23:18 by zlemery           #+#    #+#             */
-/*   Updated: 2023/12/27 14:03:53 by zlemery          ###   ########.fr       */
+/*   Updated: 2024/01/15 18:59:53 by zlemery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 ScavTrap::ScavTrap( const std::string name ) : ClapTrap(name)
 {
-	std::cout << "Scavtrap constructor called" << std::endl;
+	std::cout << GREEN  << "Scavtrap constructor called" << GREEN << std::endl;
 
 	this->_HitPoints = 100;
 	this->_EnergyPoints = 50;
@@ -26,28 +26,28 @@ ScavTrap::ScavTrap( const std::string name ) : ClapTrap(name)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << GREEN << "ScavTrap destructor called" << RESET << std::endl;
 	return ;
 }
 
 void ScavTrap::guardGate()
 {
-	std::cout << this->_Name << "is now in guard keep mode" << std::endl;
+	std::cout << BLUE << this->_Name << " is now in guard keep mode" << RESET << std::endl;
 	return ;
 }
 
 void	ScavTrap::attack( const std::string& target )
 {
-	if (this->_EnergyPoints > 0 || this->_HitPoints){
-		std::cout << YELLOW << "Scavtrap " << this->_Name << " attacks " << target
-		<< " , causing " << this->_AttackDamage << " points of damage !" << RESET << std::endl;
+	if (this->_EnergyPoints > 0 && this->_HitPoints){
+		std::cout << "Scavtrap " << this->_Name << " attacks " << target
+		<< ", causing " << this->_AttackDamage << " points of damage !" << std::endl;
 		this->_EnergyPoints--;
 	}
 	else if (this->_EnergyPoints){
-		std::cout << RED << "Scavtrap " << this->_Name << " cannot attack whithout energy point" << std::endl;
+		std::cout << RED << "Scavtrap " << this->_Name << " cannot attack whithout energy point" << RESET << std::endl;
 	}
 	else{
-		std::cout << RED << "Scavtrap " << this->_Name << " cannot attack beacause " << this->_Name<< std::endl;
+		std::cout << RED << "Scavtrap " << this->_Name << " cannot attack beacause " << this->_Name << RESET<< std::endl;
 	}
 	return ;
 }
@@ -61,27 +61,31 @@ void	ScavTrap::takeDamage(unsigned int amount)
 	}
 	this->_HitPoints -= amount;
 
-	std::cout << YELLOW << "Scavtrap " << this->_Name << " received " << amount
-	<< " points of damage, it remain " << this->_HitPoints << " HitPoints" << RESET << std::endl;
+	if (this->_HitPoints <= 0)
+		this->_HitPoints = 0;
+
+	std::cout << "Scavtrap " << this->_Name << " received " << amount
+	<< " points of damage, it remain " << this->_HitPoints << " HitPoints" << std::endl;
 	return ;
 }
 
 void	ScavTrap::beRepaired( unsigned int amount)
 {
-	if (this->_EnergyPoints > 0 || this->_HitPoints > 0){
+	if (this->_EnergyPoints > 0 && this->_HitPoints > 0)
+	{
 
 		this->_HitPoints += amount;
 		this->_EnergyPoints--;
-		std::cout << YELLOW << "Scavtrap " << this->_Name << " receive " << amount
+		std::cout << "ScavTrap " << this->_Name << " receive " << amount
 		<< " energy points, now " << this->_Name << " has " << this->_HitPoints 
-		<< " hit points" << RESET << std::endl;
+		<< " hit points" << std::endl;
 	}
-	else if (!this->_EnergyPoints){
-		std::cout << RED << "Scavtrap " << this->_Name << " cannot repaire hit points without energy points"
+	else if (this->_EnergyPoints){
+		std::cout << RED << "ScavTrap " << this->_Name << " cannot repaire hit points without energy points"
 		<< RESET << std::endl;
 	}
 	else {
-			std::cout << RED << "Scavtrap " << this->_Name << " cannot repaire beacause" << this->_Name << " is dead"
+			std::cout << RED << "ScavTrap " << this->_Name << " cannot repaire beacause" << this->_Name << " is dead"
 		<< RESET << std::endl;
 	}
 	return ;

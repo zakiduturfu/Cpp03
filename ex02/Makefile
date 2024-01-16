@@ -3,7 +3,7 @@
 NAME	=	FragTrap
 PROJECT =	Cpp03 - Ex02
 CC		=	c++
-FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
+FLAG	=	-Wall -Wextra -Werror -std=c++98 -g
 
 SRC_DIR	=	src/
 OBJ_DIR =	obj/
