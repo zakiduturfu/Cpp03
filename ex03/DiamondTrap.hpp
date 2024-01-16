@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zlemery <zlemery@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zaki <zaki@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 16:34:11 by zlemery           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/01/16 13:57:10 by zlemery          ###   ########.fr       */
+=======
+/*   Updated: 2023/12/28 00:01:22 by zaki             ###   ########.fr       */
+>>>>>>> refs/remotes/origin/main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +28,15 @@ public:
 	DiamondTrap( DiamondTrap const & src);
 	~DiamondTrap();
 
+<<<<<<< HEAD
 	void	guardGate();
 	void	highFivesGuys( void );
+=======
+	std::string	getName( void );
+	int		getEnergyPoint( void );
+	int		getAttackDamage( void );
+	int		getHitPoint( void );
+>>>>>>> refs/remotes/origin/main
 
 private:
 	std::string	_Name;
